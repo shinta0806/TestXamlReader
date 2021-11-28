@@ -6,6 +6,8 @@
     <UseWPF>true</UseWPF>
     <Nullable>enable</Nullable>
     <Copyright>by SHINTA</Copyright>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <DebugType>embedded</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,7 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="LivetCask" Version="4.0.1" />
+    <PackageReference Include="gong-wpf-dragdrop" Version="2.4.3" />
+    <PackageReference Include="LivetCask" Version="4.0.2" />
   </ItemGroup>
 
   <ItemGroup>

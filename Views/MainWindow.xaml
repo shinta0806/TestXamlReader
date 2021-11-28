@@ -30,7 +30,7 @@
 
     <StackPanel Margin="20">
         <Button Content="タブを増やす" Command="{Binding ButtonAddTabItemClickedCommand}" />
-        <TabControl ItemsSource="{Binding TabItems}" SelectedIndex="{Binding SelectedTabIndex}" Width="400" Height="200" Margin="0,20,0,0" >
+        <TabControl ItemsSource="{Binding TabItems}" SelectedIndex="{Binding SelectedTabIndex}" Width="400" Height="300" Margin="0,20,0,0" >
         </TabControl>
     </StackPanel>
 </Window>

@@ -12,11 +12,27 @@ using Livet;
 using Livet.Commands;
 
 using System;
+using System.Collections.ObjectModel;
 
 namespace TestXamlReader.ViewModels
 {
 	public class DynamicTabItemViewModel : ViewModel
 	{
+		// ====================================================================
+		// コンストラクター・デストラクター
+		// ====================================================================
+
+		// --------------------------------------------------------------------
+		// コンストラクター
+		// --------------------------------------------------------------------
+		public DynamicTabItemViewModel()
+		{
+			for (Int32 i = 0; i < 10; i++)
+			{
+				ListItems.Add("ドラッグで順番を入れ替えられるアイテム " + i.ToString());
+			}
+		}
+
 		// ====================================================================
 		// public プロパティー
 		// ====================================================================
@@ -32,6 +48,9 @@ namespace TestXamlReader.ViewModels
 			get => _randomValue;
 			set => RaisePropertyChangedIfSet(ref _randomValue, value);
 		}
+
+		// リストアイテム
+		public ObservableCollection<String> ListItems { get; set; } = new();
 
 		// --------------------------------------------------------------------
 		// コマンド

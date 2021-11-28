@@ -77,8 +77,7 @@ namespace TestXamlReader.ViewModels
 				using XmlReader xml = XmlReader.Create(reader.BaseStream);
 
 				// タブを生成
-				FrameworkElement? element = XamlReader.Load(xml) as FrameworkElement;
-				if (element == null)
+				if (XamlReader.Load(xml) is not FrameworkElement element)
 				{
 					throw new Exception("リソースからコントロールを生成できませんでした：");
 				}
@@ -111,7 +110,7 @@ namespace TestXamlReader.ViewModels
 		// --------------------------------------------------------------------
 		// 初期化
 		// --------------------------------------------------------------------
-		public void Initialize()
+		public static void Initialize()
 		{
 		}
 	}
