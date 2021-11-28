@@ -6,9 +6,8 @@
     xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
     xmlns:v="clr-namespace:TestXamlReader.Views"
     xmlns:vm="clr-namespace:TestXamlReader.ViewModels"
-    Title="MainWindow"
-    Width="525"
-    Height="350">
+    Title="XAML 動的読み込みのサンプル"
+    SizeToContent="WidthAndHeight" ResizeMode="NoResize">
 
     <Window.DataContext>
         <vm:MainWindowViewModel />
@@ -29,5 +28,13 @@
 
     </behaviors:Interaction.Triggers>
 
-    <Grid />
+    <StackPanel Margin="20">
+        <Button Content="タブを増やす" Command="{Binding ButtonAddTabItemClickedCommand}" />
+        <StackPanel Orientation="Horizontal" >
+            <Label Content="ランダム：" />
+            <Label Content="{Binding RandomValue}" />
+        </StackPanel>
+        <TabControl ItemsSource="{Binding TabItems}" SelectedIndex="{Binding SelectedTabIndex}" Width="400" Height="200" Margin="0,20,0,0" >
+        </TabControl>
+    </StackPanel>
 </Window>
