@@ -32,14 +32,6 @@ namespace TestXamlReader.ViewModels
 		// View 通信用のプロパティー
 		// --------------------------------------------------------------------
 
-		// ランダム値
-		private Int32 _randomValue;
-		public Int32 RandomValue
-		{
-			get => _randomValue;
-			set => RaisePropertyChangedIfSet(ref _randomValue, value);
-		}
-
 		// タブアイテム
 		public ObservableCollection<TabItem> TabItems { get; set; } = new();
 
@@ -95,6 +87,11 @@ namespace TestXamlReader.ViewModels
 					Header = "タブ " + TabItems.Count,
 					Content = element,
 				};
+
+				// ViewModel を紐付
+				DynamicTabItemViewModel dynamicTabItemViewModel = new();
+				CompositeDisposable.Add(dynamicTabItemViewModel);
+				tabItem.DataContext = dynamicTabItemViewModel;
 				TabItems.Add(tabItem);
 
 				// 追加したタブを選択
@@ -104,27 +101,6 @@ namespace TestXamlReader.ViewModels
 			{
 				MessageBox.Show(ex.Message);
 			}
-		}
-		#endregion
-
-		#region ランダムに値を設定ボタンの制御
-		private ViewModelCommand? _buttonRandomClickedCommand;
-
-		public ViewModelCommand ButtonRandomClickedCommand
-		{
-			get
-			{
-				if (_buttonRandomClickedCommand == null)
-				{
-					_buttonRandomClickedCommand = new ViewModelCommand(ButtonRandomClicked);
-				}
-				return _buttonRandomClickedCommand;
-			}
-		}
-
-		public void ButtonRandomClicked()
-		{
-			RandomValue = Random.Shared.Next();
 		}
 		#endregion
 
