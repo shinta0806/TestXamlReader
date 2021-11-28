@@ -86,11 +86,6 @@ namespace TestXamlReader.ViewModels
 					Header = "タブ " + TabItems.Count,
 					Content = element,
 				};
-
-				// ViewModel を紐付
-				DynamicTabItemViewModel dynamicTabItemViewModel = new();
-				CompositeDisposable.Add(dynamicTabItemViewModel);
-				tabItem.DataContext = dynamicTabItemViewModel;
 				TabItems.Add(tabItem);
 
 				// 追加したタブを選択
@@ -101,7 +96,7 @@ namespace TestXamlReader.ViewModels
 				MessageBox.Show(ex.Message);
 			}
 		}
-		#endregion
+#endregion
 
 		// ====================================================================
 		// public メンバー関数
